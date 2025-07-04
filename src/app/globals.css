@@ -10,3 +10,35 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+body {
+  background-color: #f9f5f0; /* soft beige */
+  color: #2f2f2f; /* muted dark gray */
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+}
+
+/* Section backgrounds */
+section {
+  background-color: transparent; /* inherit soft beige */
+  padding: 6rem 1.5rem;
+}
+
+/* Headings */
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Input fields */
+input, textarea, select {
+  background-color: white;
+  border: 1px solid #ccc;
+  color: #333;
+}
+
+/* Optional soft shadow look */
+.shadow-md, .box {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  border-radius: 0.75rem;
+  background-color: #fff;
+}

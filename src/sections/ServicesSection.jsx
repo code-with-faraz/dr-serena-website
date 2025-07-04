@@ -24,7 +24,7 @@ export default function ServicesSection() {
     <section id="services" className="py-24 px-6 md:px-12 bg-white text-gray-800"> 
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-3xl sm:text-4xl font-serif font-semibold text-gray-900 mb-14">
-          Services Offered
+          Areas of focus
         </h2>
 
         <div className="grid gap-12 md:grid-cols-3">
