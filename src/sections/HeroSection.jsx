@@ -40,9 +40,10 @@ export default function HeroSection() {
 
   return (
     <section
-      id="hero"
-      className="relative flex flex-col items-center justify-start py-12 px-4 sm:px-6"
-    >
+  id="hero"
+  className="relative flex flex-col items-center justify-start py-12 px-4 sm:px-8 max-w-[85rem] mx-auto bg-[#21bace]"
+>
+
       <a
         href="/"
         className="absolute top-8 left-8 text-xl sm:text-2xl font-light tracking-wide text-gray-800 z-20"
