@@ -2,28 +2,16 @@ import Image from "next/image";
 
 export default function AboutSection() {
   return (
-   <section
-  id="about"
-  className="py-20 px-6 md:px-12 bg-white text-gray-800"
-  data-aos="fade-up"
-  data-aos-delay="200"
-  data-aos-duration="1200"
-  data-aos-easing="ease-in-out"
->
-
+    <section
+      id="about"
+      className="py-20 px-6 md:px-12 bg-white text-gray-800 divider-section"
+      data-aos="fade-up"
+      data-aos-delay="200"
+      data-aos-duration="1200"
+      data-aos-easing="ease-in-out"
+    >
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        {/* Headshot */}
-        <div className="flex justify-center">
-          <Image
-            src="/assets/dr-serena.jpg"
-            alt="Dr. Serena Blake"
-            width={400}
-            height={400}
-            className="rounded-lg shadow-lg object-cover w-full max-w-xs sm:max-w-sm"
-          />
-        </div>
-
-        {/* Bio Text */}
+        {/* Bio Text - Now on the left */}
         <div>
           <h2 className="text-3xl sm:text-4xl font-serif font-semibold mb-6">
             Meet Dr. Serena Blake
@@ -63,6 +51,17 @@ export default function AboutSection() {
               <p>$240 / couples session</p>
             </div>
           </div>
+        </div>
+
+        {/* Headshot - Now on the right */}
+        <div className="flex justify-center">
+          <Image
+            src="/assets/dr-serena.jpg"
+            alt="Dr. Serena Blake"
+            width={500}
+            height={500}
+            className="rounded-lg shadow-lg object-cover w-full max-w-md sm:max-w-lg"
+          />
         </div>
       </div>
     </section>

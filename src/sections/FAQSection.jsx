@@ -14,6 +14,18 @@ const faqs = [
     question: "What is your cancellation policy?",
     answer: "24-hour notice required.",
   },
+  {
+    question: "What issues can I bring to therapy?",
+    answer: "You can bring anything—stress, anxiety, relationships, trauma, grief, or personal growth. No issue is too small.",
+  },
+  {
+    question: "How long are the sessions?",
+    answer: "Individual sessions are typically 50 minutes long, while couples sessions may be 60 minutes.",
+  },
+  {
+    question: "Is everything I share confidential?",
+    answer: "Yes. Everything shared in session is strictly confidential, with a few legal exceptions (like harm to self or others).",
+  },
 ];
 
 export default function FAQSection() {

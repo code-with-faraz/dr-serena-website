@@ -1,10 +1,19 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function HeroSection() {
   const videoRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
   const loopThreshold = 5;
+
+  useEffect(() => {
+    // Check if user is on a mobile device (basic check)
+    if (typeof window !== "undefined") {
+      const check = /iPhone|iPad|iPod|Android/i.test(window.navigator.userAgent);
+      setIsMobile(check);
+    }
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -32,7 +41,7 @@ export default function HeroSection() {
       id="hero"
       className="relative flex items-center justify-center py-24 px-4 sm:px-6"
     >
-      <div className="relative w-full max-w-[90rem] h-[80vh] rounded-2xl overflow-hidden shadow-xl">
+      <div className="relative w-full max-w-[90rem] h-[95vh] rounded-2xl overflow-hidden shadow-xl">
         <video
           ref={videoRef}
           autoPlay
@@ -41,7 +50,10 @@ export default function HeroSection() {
           loop={false}
           className="absolute top-0 left-0 w-full h-full object-cover z-[-2]"
         >
-          <source src="/assets/hero-bg.mp4" type="video/mp4" />
+          <source
+            src={isMobile ? "/assets/hero-bg-mobile.mp4" : "/assets/hero-bg.mp4"}
+            type="video/mp4"
+          />
           Your browser does not support the video tag.
         </video>
 

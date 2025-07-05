@@ -40,7 +40,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="py-24 px-6 bg-gray-50 text-gray-900"
+      className="py-24 px-6 bg-gray-50 text-gray-900 last-section"
       data-aos="fade-up"
       data-aos-delay="150"
       data-aos-duration="900"
