@@ -14,6 +14,7 @@ export default function ContactSection() {
   });
 
   const [errors, setErrors] = useState({});
+  const [showToast, setShowToast] = useState(false);
 
   const validate = () => {
     const newErrors = {};
@@ -31,7 +32,17 @@ export default function ContactSection() {
     e.preventDefault();
     const newErrors = validate();
     if (Object.keys(newErrors).length === 0) {
-      alert("Form submitted!");
+      setErrors({});
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 3000);
+      setForm({
+        name: "",
+        phone: "",
+        email: "",
+        reason: "",
+        time: "",
+        agree: false,
+      });
     } else {
       setErrors(newErrors);
     }
@@ -40,18 +51,27 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="py-24 px-6 bg-gray-50 text-gray-900 last-section"
+      className="py-24 px-6 bg-gray-50 text-gray-900 last-section relative"
       data-aos="fade-up"
       data-aos-delay="150"
       data-aos-duration="900"
       data-aos-easing="ease-in-out"
     >
+      {/* TOAST */}
+      {showToast && (
+        <div className="fixed top-20 left-1/2 -translate-x-1/2 bg-green-700 text-white px-6 py-3 rounded-md shadow-lg z-[9999] text-sm sm:text-base max-w-[90%] sm:max-w-fit text-center">
+          Form submitted! Dr. Serena will reach out via{" "}
+          <strong>serena@blakepsychology.com</strong>
+        </div>
+      )}
+
       <div className="max-w-3xl mx-auto border border-green-900 rounded-lg p-8 shadow-md bg-white">
         <h2 className="text-3xl sm:text-4xl font-serif font-bold text-center text-green-900 mb-4">
           Get In Touch
         </h2>
         <p className="text-center text-gray-800 mb-8">
-          Simply fill out the brief fields below and Dr. Serena will be in touch with you soon.
+          Simply fill out the brief fields below and Dr. Serena will be in touch
+          with you soon.
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -106,14 +126,14 @@ export default function ContactSection() {
             )}
           </div>
 
-          {/* What brings you here? */}
+          {/* Reason */}
           <div>
             <label className="block text-sm font-medium text-green-900 mb-1 font-serif">
               What brings you here?
             </label>
             <textarea
-              placeholder="Briefly share what's on your mind..."
               rows="4"
+              placeholder="Briefly share what's on your mind..."
               className="w-full border border-green-900 rounded-md px-4 py-2 text-sm placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-green-800"
               value={form.reason}
               onChange={(e) => setForm({ ...form, reason: e.target.value })}
@@ -140,7 +160,7 @@ export default function ContactSection() {
             )}
           </div>
 
-          {/* Consent Checkbox */}
+          {/* Consent */}
           <div className="flex items-start space-x-2">
             <input
               type="checkbox"
