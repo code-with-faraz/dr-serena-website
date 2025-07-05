@@ -5,16 +5,18 @@ import { useEffect, useRef, useState } from "react";
 export default function HeroSection() {
   const videoRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
-  const loopThreshold = 5;
 
+  // Detect mobile
   useEffect(() => {
-    // Check if user is on a mobile device (basic check)
     if (typeof window !== "undefined") {
-      const check = /iPhone|iPad|iPod|Android/i.test(window.navigator.userAgent);
-      setIsMobile(check);
+      const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(
+        window.navigator.userAgent
+      );
+      setIsMobile(isMobileDevice);
     }
   }, []);
 
+  // Set video playback speed and custom loop
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -24,7 +26,7 @@ export default function HeroSection() {
     let frameId;
 
     const loopHandler = () => {
-      if (video.duration && video.currentTime >= video.duration - loopThreshold) {
+      if (video.duration && video.currentTime >= video.duration - 4) {
         video.currentTime = 0;
         video.play().catch(() => {});
       }
@@ -39,9 +41,21 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative flex items-center justify-center py-24 px-4 sm:px-6"
+      className="relative flex flex-col items-center justify-start py-12 px-4 sm:px-6"
     >
-      <div className="relative w-full max-w-[90rem] h-[95vh] rounded-2xl overflow-hidden shadow-xl">
+      <a
+        href="/"
+        className="absolute top-8 left-8 text-xl sm:text-2xl font-light tracking-wide text-gray-800 z-20"
+        style={{
+          fontFamily: "'Playfair Display', serif",
+          color: "#2f4f4f",
+          pointerEvents: "auto",
+        }}
+      >
+        Dr. Serena Blake, PsyD
+      </a>
+
+      <div className="relative w-full max-w-[90rem] h-[95vh] overflow-hidden shadow-xl">
         <video
           ref={videoRef}
           autoPlay
@@ -51,7 +65,9 @@ export default function HeroSection() {
           className="absolute top-0 left-0 w-full h-full object-cover z-[-2]"
         >
           <source
-            src={isMobile ? "/assets/hero-bg-mobile.mp4" : "/assets/hero-bg.mp4"}
+            src={
+              isMobile ? "/assets/hero-bg-mobile.mp4" : "/assets/hero-bg.mp4"
+            }
             type="video/mp4"
           />
           Your browser does not support the video tag.

@@ -5,6 +5,7 @@ import ServicesSection from "@/sections/ServicesSection";
 import FAQSection from "@/sections/FAQSection";
 import ContactSection from "@/sections/ContactSection";
 import ClientWrapper from "@/components/ClientWrapper";
+import QuoteSection from "@/sections/QuoteSection";
 
 export default function Home() {
   return (
@@ -20,7 +21,8 @@ export default function Home() {
         <AboutSection />
         <ServicesSection />
         <FAQSection />
-        <ContactSection />
+        <QuoteSection/>
+        <ContactSection/>
       </ClientWrapper>
     </>
   );
